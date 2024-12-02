@@ -2,7 +2,7 @@ from random import choices
 from string import ascii_uppercase, digits
 
 from django.db import models
-from refferal_system.settings import MAX_INVITE_CODE_LEN
+from referral_system.settings import MAX_INVITE_CODE_LEN
 
 
 def generate_invite_code(length=MAX_INVITE_CODE_LEN):

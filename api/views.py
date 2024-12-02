@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
 
-from refferal_system.settings import MAX_RANDINT, MIN_RANDINT, TIMEOUT
+from referral_system.settings import MAX_RANDINT, MIN_RANDINT, TIMEOUT
 from users.models import User
 
 
@@ -38,4 +38,4 @@ class VerifyCodeView(APIView):
                 {"error": "Неверный код"}, status=HTTP_400_BAD_REQUEST
             )
         user, created = User.objects.get_or_create(phone_number=phone_number)
-        return Response({"message": "Успешно", "user_id": user.id})
+        return Response({"message": "Успешно", "id пользователя": user.id})

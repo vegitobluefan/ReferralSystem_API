@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'drf_yasg',
     'api',
     'users',
 ]
@@ -57,17 +58,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'referral_system.wsgi.application'
 
 
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME': 'referral_system',
-        # 'USER': 'referral_user',
-        # 'PASSWORD': 'secure_password',
-        # 'HOST': 'localhost',
-        # 'PORT': '5432',
-    # }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -96,6 +86,13 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -109,7 +106,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Константы типа int
 
 MAX_INVITE_CODE_LEN = 6
 MIN_RANDINT = 1000
