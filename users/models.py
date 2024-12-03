@@ -6,10 +6,13 @@ from referral_system.settings import MAX_INVITE_CODE_LEN
 
 
 def generate_invite_code(length=MAX_INVITE_CODE_LEN):
+    """Генерация уникального инвайт-код для пользователя."""
     return ''.join(choices(ascii_uppercase + digits, k=length))
 
 
 class User(models.Model):
+    """Модель пользователя."""
+
     phone_number = models.CharField(max_length=15, unique=True)
     invite_code = models.CharField(
         max_length=MAX_INVITE_CODE_LEN,

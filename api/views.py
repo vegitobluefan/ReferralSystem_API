@@ -10,6 +10,8 @@ from users.models import User
 
 
 class LoginView(APIView):
+    """Рассылка кода на номер телефона."""
+
     def post(self, request):
         phone_number = request.data.get('phone_number')
         if not phone_number:
@@ -23,6 +25,8 @@ class LoginView(APIView):
 
 
 class VerifyCodeView(APIView):
+    """Верификация кода и логин пользователя.."""
+
     def post(self, request):
         phone_number = request.data.get('phone_number')
         code = request.data.get('code')

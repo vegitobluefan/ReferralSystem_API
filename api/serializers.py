@@ -4,6 +4,8 @@ from users.models import User
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    """Сериализатор для профиля пользователя."""
+
     referrals = serializers.StringRelatedField(many=True)
 
     class Meta:
@@ -14,6 +16,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class UpdateInviteSerializer(serializers.ModelSerializer):
+    """Сериализатор для рефералов."""
+
     class Meta:
         model = User
         fields = ('referred_by',)
