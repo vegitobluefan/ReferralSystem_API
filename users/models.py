@@ -2,18 +2,19 @@ from random import choices
 from string import ascii_uppercase, digits
 
 from django.db import models
-from referral_system.settings import MAX_INVITE_CODE_LEN
+
+from referral_system.settings import MAX_INVITE_CODE_LEN, MAX_PHONE_LEN
 
 
 def generate_invite_code(length=MAX_INVITE_CODE_LEN):
-    """Генерация уникального инвайт-код для пользователя."""
+    """Генерация уникального инвайт-кода для пользователя."""
     return ''.join(choices(ascii_uppercase + digits, k=length))
 
 
 class User(models.Model):
     """Модель пользователя."""
 
-    phone_number = models.CharField(max_length=15, unique=True)
+    phone_number = models.CharField(max_length=MAX_PHONE_LEN, unique=True)
     invite_code = models.CharField(
         max_length=MAX_INVITE_CODE_LEN,
         unique=True,

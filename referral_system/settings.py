@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'drf_yasg',
     'api',
     'users',
 ]
@@ -114,6 +113,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Константы типа int
 
 MAX_INVITE_CODE_LEN = 6
+MAX_PHONE_LEN = 15
 MIN_RANDINT = 1000
 MAX_RANDINT = 9999
 TIMEOUT = 120
